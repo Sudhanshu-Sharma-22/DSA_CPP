@@ -15,11 +15,13 @@ int main(){
         }
         else if(s[i]==t[i] || s.empty()==true){
             int temp=t[i+1];
-            s[i+1]=empty;
-            s[i+1]=s.push_back(temp);
+            s[i+1]=0;
+            s.push_back(temp);
             count++;
+            //cout<<temp<<endl;
         }
     }
+    //cout<<count<<" "<<s;
     if(count==n){
         cout<<"YES";
     }
