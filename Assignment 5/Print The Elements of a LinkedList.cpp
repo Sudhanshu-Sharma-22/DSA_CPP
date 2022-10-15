@@ -25,14 +25,21 @@ void printlinkedlist(ListNode * head){
 int main(){
 	int n;
 	cin>>n;
-	ListNode * head;
-	for(int i=0;i<n;i++){
-		int num;
-		cin>>num;
-		head = newnode(num);
-		// cout<<"test"<<endl;
-		head=head->next;
+	ListNode * head = NULL;
+	ListNode * temp = NULL;
+		for(int i=0;i<n;i++){
+		int val;
+		cin>>val;
+		if(head==NULL){
+			head= newnode(val);
+			temp = head;
+		}
+		else{
+			temp->next = newnode(val);
+			temp = temp->next;
+		}
 	}
+ 
 	printlinkedlist(head);
 	return 0;
 }
