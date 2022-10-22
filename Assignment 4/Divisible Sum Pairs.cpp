@@ -12,8 +12,13 @@ int main(){
         cin>>arr[i];
     }
     for(int i=0;i<n;i++){
-        for(int j=1;j<n;j++){
+        for(int j=0;j<n;j++){
             int temp=arr[i]+arr[j];
+            if(i==j) {
+                // temp=arr[i]+arr[j+1];
+                continue;
+            }
+            // else int temp=arr[i]+arr[j];
             // cout<<temp<<endl;
             if(temp%k==0){
                 count++;
