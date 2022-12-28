@@ -1,3 +1,6 @@
+
+//https://ideone.com/HU2C3Z
+
 #include<bits/stdc++.h>
 using namespace std;
 
