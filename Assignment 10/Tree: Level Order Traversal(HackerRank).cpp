@@ -54,14 +54,8 @@ class Node {
         if(q.empty()) q.push(root);
         while(!q.empty()){
             Node * temp=q.front();
-            if(temp->left!=NULL){
-                q.push(temp->left);
-                // root->left=NULL;
-            }
-            if(temp->right!=NULL){
-                q.push(temp->right);
-                // root->right=NULL;
-            }
+            if(temp->left!=NULL) q.push(temp->left);
+            if(temp->right!=NULL) q.push(temp->right);
             cout<<q.front()->data<<" ";
             q.pop();
         }
