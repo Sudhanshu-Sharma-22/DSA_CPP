@@ -82,3 +82,25 @@ class Node {
     }
 
 }; //End of Solution
+
+int main() {
+  
+    Solution myTree;
+    Node* root = NULL;
+    
+    int t;
+    int data;
+
+    std::cin >> t;
+
+    while(t-- > 0) {
+        std::cin >> data;
+        root = myTree.insert(root, data);
+    }
+  
+    int height = myTree.height(root);
+    
+  	std::cout << height;
+
+    return 0;
+}
