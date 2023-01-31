@@ -1,33 +1,74 @@
 
 //https://www.hackerrank.com/challenges/time-conversion/problem?isFullScreen=true
 
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
+
 using namespace std;
 
-#include <iostream>
-using namespace std;
+/*
+ * Complete the 'timeConversion' function below.
+ *
+ * The function is expected to return a STRING.
+ * The function accepts STRING s as parameter.
+ */
 
-int main() {
-    string s,hr,min,sec;
-    cin>>s;
-    hr[0]=s[0];
-    hr[1]=s[1];
-    min[0]=s[3];
-    min[1]=s[4];
-    sec[0]=s[6];
-    sec[1]=s[7];
-    if(s[8]==80){
-        int num=stoi(hr);
-        hr=to_string(num+12);
+string timeConversion(string s) {
+    if(s[8]=='P' && s[0]=='1' && s[1]=='2'){
+        s.pop_back();
+        s.pop_back();
+        return s;
+    }
+    else if(s[8]=='P' || (s[0]=='1' && s[1]=='2')) {
+        s.pop_back();
+        s.pop_back();
+        string str;
+        str.push_back(s[0]);
+        str.push_back(s[1]);
+        int num = stoi(str);
+        num+=12;
+        string temp;
+        if(num==24) {
+            s[0]='0';
+            s[1]='0';
+        }
+        else {
+            temp=to_string(num);
+            s[0]=temp[0];
+            s[1]=temp[1];
+        }
     }
     else{
-        int num=stoi(hr);
-        hr=to_string(num+12);
+        s.pop_back();
+        s.pop_back();
+        return s;
     }
-    if(hr[0]==50 && hr[1]==52){
-            hr[0]=48;
-            hr[1]=48;
-        }
-    cout<<hr[0]<<hr[1]<<":"<<min[0]<<min[1]<<":"<<sec[0]<<sec[1];
+    /*else {
+        s.pop_back();
+        s.pop_back();
+        string str;
+        str.push_back(s[0]);
+        str.push_back(s[1]);
+        int num = stoi(str);
+        num+=12;
+        string temp=to_string( num);
+        s[0]=temp[0];
+        s[1]=temp[1];
+    }*/
+    return s;
+}
+
+int main()
+{
+    ofstream fout(getenv("OUTPUT_PATH"));
+
+    string s;
+    getline(cin, s);
+
+    string result = timeConversion(s);
+
+    fout << result << "\n";
+
+    fout.close();
+
     return 0;
 }
